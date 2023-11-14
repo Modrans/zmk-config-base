@@ -11,6 +11,13 @@
 
 / {
     behaviors {
+        td_qesc: tap_dance_q_esc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_Q_ESC";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp Q>, <&kp ESC>;
+        };
         ht: hold_tap {
             label = "hold_tap";
             compatible = "zmk,behavior-hold-tap";
@@ -36,8 +43,8 @@
         default_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  SQT     │
-            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp SQT
+        //│  QESC    │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  SQT     │
+            &td_qesc   &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp SQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
             HRML(A,        R,         S,         T)     &kp G          &kp N      HRMR(N,       E,         I,        O)
